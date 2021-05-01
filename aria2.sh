@@ -511,6 +511,8 @@ View_Aria2() {
     else
         AriaNg_API="/#!/settings/rpc/set/ws/${IPV4}/${aria2_port}/jsonrpc/$(echo -n ${aria2_passwd} | base64)"
         AriaNg_URL="http://ariang.js.org${AriaNg_API}"
+        AriaNg_APItsl="/#!/settings/rpc/set/https/YourDomain/443/jsonrpc/$(echo -n ${aria2_passwd} | base64)"
+        AriaNg_URLtsl="https://www.athony.net/Aria2${AriaNg_API}"
     fi
     clear
     echo -e "\nAria2 简单配置信息：\n
@@ -520,6 +522,7 @@ View_Aria2() {
  RPC 密钥\t: ${Green_font_prefix}${aria2_passwd}${Font_color_suffix}
  下载目录\t: ${Green_font_prefix}${aria2_dir}${Font_color_suffix}
  AriaNg 链接\t: ${Green_font_prefix}${AriaNg_URL}${Font_color_suffix}\n"
+ AriaNg 链接(Nginx反代替换域名后)\t: ${Green_font_prefix}${AriaNg_URLtsl}${Font_color_suffix}\n"
 }
 View_Log() {
     [[ ! -e ${aria2_log} ]] && echo -e "${Error} Aria2 日志文件不存在 !" && exit 1
